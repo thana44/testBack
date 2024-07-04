@@ -45,7 +45,7 @@ router.post('/login', async(req, res)=>{
         }else{
             const token = jwt.sign({_id: userInDT._id}, process.env.JWT_SECRET_KEY)
         const theTime = new Date(Date.now() + 3600000);
-        res.cookie('acess_token', token, {httpOnly:true,sameSite:None, expires: theTime}).json({currentUser: userInDT})
+        res.cookie('acess_token', token, {httpOnly:true,sameSite:'None', expires: theTime}).json({currentUser: userInDT})
         }
 
     }catch(err){
